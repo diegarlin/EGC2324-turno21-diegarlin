@@ -2,18 +2,21 @@ name: Python application
 
 on:
   push:
-     branches:
-	   - egc_test
+    branches:
+      - egc_test
   
 
 jobs:
   build:
+    strategy:
+      matrix:
+        postgresversion: ['postgres:14.9','postgres:15']
 
     runs-on: ubuntu-latest
 
     services:
       postgres:
-        image: postgres:14.9
+        image: ${{matrix.postgresversion}}
         env:
           POSTGRES_USER: decide
           POSTGRES_PASSWORD: decide
