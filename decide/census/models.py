@@ -1,6 +1,6 @@
 from django.db import models
 
-#hola
+#adios
 class Census(models.Model):
     voting_id = models.PositiveIntegerField()
     voter_id = models.PositiveIntegerField()
